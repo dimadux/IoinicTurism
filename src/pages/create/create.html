@@ -1,0 +1,80 @@
+<!--
+  Generated template for the CreatePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Creating routes</ion-title>
+  </ion-navbar>
+
+</ion-header>
+<ion-content class="login-content" padding>
+
+  <div class="login-box">
+    <form  #registerForm="ngForm">
+      <ion-row>
+        <ion-col>
+          <ion-list inset>
+              <h1>Set name</h1>
+              <ion-item>
+                <ion-input [(ngModel)] = "nams" [ngModelOptions]="{standalone:true}" name="aloha"></ion-input>
+              </ion-item>
+              <h1>Choose type</h1>
+
+            <ion-item>
+              <ion-label>Food and Drink</ion-label>
+              <ion-checkbox [(ngModel)]="food" name="Food and Drink"></ion-checkbox>
+            </ion-item>
+
+            <ion-item>
+              <ion-label>Architecture</ion-label>
+              <ion-checkbox [(ngModel)]="arch" name="Architecture"></ion-checkbox>
+            </ion-item>
+
+            <ion-item>
+              <ion-label>Museum</ion-label>
+              <ion-checkbox [(ngModel)]="mus" name="Museum" ></ion-checkbox>
+            </ion-item>
+
+            <ion-item>
+              <ion-label>Nature</ion-label>
+              <ion-checkbox  [(ngModel)]="nat" name="Nature" ></ion-checkbox>
+            </ion-item>
+
+            <ion-item>
+              <ion-label>Lowcost</ion-label>
+              <ion-checkbox [ngModel]="low" name="Lowcost" ></ion-checkbox>
+            </ion-item>
+
+            <ion-item>
+              <ion-label>Highcost</ion-label>
+              <ion-checkbox [ngModel]="high" name="Highcost"></ion-checkbox>
+            </ion-item>
+
+          </ion-list>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col class="country-col">
+            <h1>Choose country</h1>
+            <ion-item>
+      <ion-select [(ngModel)]="countries2" [ngModelOptions]="{standalone:true}" required>
+        <ion-option *ngFor="let country of countries;let i=index" [value]="country.name">{{country.name}}</ion-option>
+      </ion-select>
+    </ion-item>
+        </ion-col>
+      </ion-row>
+        <div id="map"></div>
+      <ion-row>
+        <ion-col class="signup-col">
+          <button ion-button class="submit-btn" full type="submit" [disabled]="!registerForm.form.valid" (click)="createRoute()">Create Route</button>        </ion-col>
+      </ion-row>
+
+    </form>
+  </div>
+</ion-content>
